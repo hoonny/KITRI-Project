@@ -2,14 +2,34 @@ package com.my.vo;
 
 public class Match_room {
 
-	private String room_name;
 	private int room_id;
 	private String email;
 	private int center_id;
 	private int location_id;
 	private String match_type;
 	private String level;
+	private String owner;
+	private String user;
+	private int count;
 	
+	public String getOwner() {
+		return owner;
+	}
+	public void setOwner(String owner) {
+		this.owner = owner;
+	}
+	public String getUser() {
+		return user;
+	}
+	public void setUser(String user) {
+		this.user = user;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
 	public int getRoom_id() {
 		return room_id;
 	}
@@ -47,17 +67,13 @@ public class Match_room {
 	public void setLevel(String level) {
 		this.level = level;
 	}
-	public String getRoom_name() {
-		return room_name;
-	}
-	public void setRoom_name(String room_name) {
-		this.room_name = room_name;
-	}
 	@Override
 	public String toString() {
-		return "Match_room [room_name=" + room_name + ", room_id=" + room_id + ", email=" + email + ", center_id="
-				+ center_id + ", location_id=" + location_id + ", match_type=" + match_type + ", level=" + level + "]";
+		return "Match_room [room_id=" + room_id + ", email=" + email + ", center_id="
+				+ center_id + ", location_id=" + location_id + ", match_type=" + match_type + ", level=" + level
+				+ ", owner=" + owner + ", user=" + user + ", count=" + count + "]";
 	}
+	
 	
 	
 	

@@ -27,7 +27,7 @@
 	
 	<!--  방 생성 -->
 	<insert id = "make" parameterType="Match_room">
-	insert into match_room(email,center_id,location_id, match_type, level) values(#{email},#{center_id},#{location_id},#{match_type},#{level})
+	insert into match_room(email,center_id,location_id, match_type, level, owner, count) values(#{email},#{center_id},#{location_id},#{match_type},#{level},#{owner},#{count})
 	</insert>
 	
 	<!-- 스포츠, "구"로 location_id뽑기 -->
@@ -38,7 +38,7 @@
 	
 	<!--  방 목록  -->
 	 <select id = "list" parameterType="int" resultType="hashmap" >
-		select room_name, room_id, center_name, gu, dong, adress, match_type, level
+		select room_id, center_name, gu, dong, adress, match_type, level, owner, user, count
 		from match_room m join location l on m.location_id = l.location_id
 						  join sports s on m.center_id = s.center_id
 		where m.location_id = #{location_id}
