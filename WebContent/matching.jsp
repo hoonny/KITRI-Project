@@ -187,7 +187,7 @@ $(function(){
     						alert("이미 방이 존재합니다.");
     					} else{
     						location.href="matching.do";
-    						window.open("localhost:8888/Project/broadcast.html", "채팅방", "width=500, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );
+    						window.open("localhost:8888/Project2/broadcast.html", "채팅방", "width=500, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );
     					}
     				} 
       	});
@@ -273,7 +273,7 @@ $(function(){
   <div class="roomtime">${room["level"]}</div>
   <div class="roombtn">
   <button type="submit"
-  onClick="window.open('localhost:8888/Project/broadcast.html', '채팅방', 'width=500, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes' );">
+  onClick="window.open('localhost:8888/Project2/broadcast.html', '채팅방', 'width=500, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes' );">
     입장
   </button>
   </div>

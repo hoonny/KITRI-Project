@@ -47,7 +47,7 @@
    
    <!--  글 내용보기 -->
    <select id = 'content' parameterType="int" resultType = "RepBoard">
-      select repboard_no, subject, content, email, date_format(date,'%Y-%m-%d %H:%i:%S') date 
+      select repboard_no, subject, content, email, image_url, date_format(date,'%Y-%m-%d %H:%i:%S') date 
       from repboard where repboard_no = #{repboard_no}
    </select>   
    

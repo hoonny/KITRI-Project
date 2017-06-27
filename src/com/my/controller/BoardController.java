@@ -1,11 +1,13 @@
 package com.my.controller;
 
 import java.io.IOException;
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.plaf.multi.MultiListUI;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,14 +34,15 @@ public class BoardController {
       String nick = c.getNickname();
       String email = c.getEmail();
       
-      /*String savePath = "C:\\Users\\ywj\\git\\KITRI-project\\WebContent\\image";*/
-      String savePath = "/var/lib/tomcat8/Project/webapps/up_image";
+      
+      //String savePath = "C:\\Users\\ywj\\git\\KITRI-project\\WebContent\\up_image";
+      String savePath =  rq.getSession().getServletContext().getRealPath("up_image");
       System.out.println(savePath);
       int maxPostSize = 1024*1024*15;
       
       System.out.println("request getContentType : " + rq.getContentType());
       
-      RepBoard board;
+      RepBoard board = new RepBoard();
       try {
 		MultipartRequest multi = new MultipartRequest(rq, savePath, maxPostSize, "utf-8", new DefaultFileRenamePolicy());
 		System.out.println("init");
@@ -47,11 +50,24 @@ public class BoardController {
 		String content = multi.getParameter("content");
 		String password = multi.getParameter("password");
 		System.out.println(subject+":"+content+":"+password);
+		
+		Enumeration<String> files=multi.getFileNames();
+		String file=files.nextElement();
+		
+		
+		//중복으로 인해 변경된 파일 명.
+		String filename=multi.getFilesystemName(file);
+		//원본 파일명 저장
+		String originfilename=multi.getOriginalFileName(file);
+		
+		String image_url = filename;
+		System.out.println(image_url);
 	      board = new RepBoard();
 	      board.setContent(content);
 	      board.setSubject(subject);
 	      board.setPassword(password);
 	      board.setEmail(email);
+	      board.setImage_url(image_url);
 	      
 
 	         if (content == null || subject == null || password == null){
@@ -133,7 +149,11 @@ public class BoardController {
       
       list= dao.content(no);
       String id = list.getEmail();
-      
+      String image = list.getImage_url();
+      System.out.println(list);
+      System.out.println("-----------------------------");
+      System.out.println("no:"+no);
+      System.out.println(image);
       
       
       Customer c = (Customer)session.getAttribute("loginInfo");
@@ -244,15 +264,22 @@ public class BoardController {
    
    @RequestMapping("boardWrite2.do")  //글 답글작성하기!!!!
    public String boardReply2(HttpServletRequest rq, Model model, HttpSession session){
-	      String savePath = rq.getServletContext().getRealPath("image");
+	   String savePath = "C:\\Users\\ywj\\git\\KITRI-project\\WebContent\\up_image";
 	      System.out.println(savePath);
 	      int maxPostSize = 1024*1024*15;
 	       
-	      String extraField = rq.getParameter("extraField");
-	      System.out.println(extraField);
 		try {
-			MultipartRequest multi = new MultipartRequest(rq, savePath, maxPostSize, "utf-8", new DefaultFileRenamePolicy());
-			System.out.println(multi.getParameter("extraField"));
+			MultipartRequest mt = new MultipartRequest(rq, savePath, maxPostSize, "utf-8", new DefaultFileRenamePolicy());
+			Enumeration<String> files=mt.getFileNames();
+			String file=files.nextElement();
+			//중복으로 인해 변경된 파일 명.
+			String filename=mt.getFilesystemName(file);
+			//원본 파일명 저장
+			String originfilename=mt.getOriginalFileName(file);
+			
+
+
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
