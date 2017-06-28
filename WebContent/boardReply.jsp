@@ -64,7 +64,7 @@ $(function(){
     <tbody>   
             <tr>
                 <th>제목: </th>
-                <td><input type="text"  name="subject" class="form-control" value="　ㄴ[RE:]<%=b.getSubject() %>"/ at=<%=b.getNo() %>></td>
+                <td><input type="text"  name="subject" class="form-control" value="　　　ㄴ[RE:]<%=b.getSubject() %>"/ at=<%=b.getNo() %>></td>
             </tr>
             <tr>
                 <th>내용: </th>
