@@ -109,15 +109,28 @@
 			return false; //기본이벤트(submit핸들러: method=get, action="")가 처리됨
 		}
 		
-		/********************지도확대버튼*************************/
-		function zoomMap(center_name_latitude_longtitude) {
-			var str = center_name_latitude_longtitude;
+		/********************예약버튼*************************/
+		function reserve(booking_site) {
+			alert(booking_site);
+			var str = booking_site;
 			var res = str.split(",");
-			
-			var $center_name = res[0];
-			var $latitude = res[1];
-		    var $longtitude = res[2];
-		    location.href='http://map.daum.net/link/map/'+$center_name+','+$latitude+','+$longtitude;
+			var $booking = res[0];
+			var $booking_site = res[1];
+			var url = "searchreserve.do";
+			$.ajax({url : url,
+					method : 'POST',
+					data : {"booking" : $booking, "booking_site": $booking_site},
+					success : function(data) {
+						if(data == 1){
+	                    	alert("관심목록 등록.")
+	                    }else if (data == 2){
+	                    	alert("이미 등록된 곳입니다.")
+	                    }else{
+	                    	alert("최대 5개까지만 등록 가능합니다.")
+	                    }
+					}
+			});
+			return false; //기본이벤트(submit핸들러: method=get, action="")가 처리됨
 		}
 	</script>
 </head>
@@ -245,7 +258,7 @@
 					    </div>
 					  </div>
 					</div>				
-					<button type="button" class="btn btn-default">예약</button>
+					<button type="button" value="${p.booking},${p.booking_site}" class="btn btn-default" onclick="reserve(this.value)">예약</button>
 				</div>		    
 			</div>
 		<!-- </form> -->

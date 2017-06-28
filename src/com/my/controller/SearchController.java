@@ -149,4 +149,11 @@ public class SearchController {
 		String forwardURL = "/search.jsp";
 		return forwardURL;
 	}
+	
+	@RequestMapping("/searchreserve.do")
+	public String searchreserve(Model model, int booking, String booking_site) {
+		System.out.println("booking :"+ booking + "booking_site :"+ booking_site);
+		List<Sports> list = null;
+		return null;
+	}
 }
