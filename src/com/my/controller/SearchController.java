@@ -86,17 +86,31 @@ public class SearchController {
 			List<String> list1 = dao.selectSports();
 			System.out.println("종목:"+ list1);
 			model.addAttribute("sport_name_all", list1);
-			//gu목록
-			String sports_i = "볼링";
-			List<String> list2 = dao.selectBySports(sports_i);
-			System.out.println("구:"+ list2);
-			model.addAttribute("gu_all", list2);
 			
-			//dong목록
-			String gu_i = "강남구";
-			List<String> list3 = dao.selectByGu(gu_i);
-			System.out.println("동:"+ list3);
-			model.addAttribute("dong_all", list3);
+			if(gu == null){ //menu에서 들어올시
+				//gu목록
+				String sports_i = "볼링";
+				List<String> list2 = dao.selectBySports(sports_i);
+				System.out.println("구:"+ list2);
+				model.addAttribute("gu_all", list2);
+				
+				//dong목록
+				String gu_i = "강남구";
+				List<String> list3 = dao.selectByGu(gu_i);
+				System.out.println("동:"+ list3);
+				model.addAttribute("dong_all", list3);
+				
+			} else{ // main바에서 들어올시
+				//dong목록
+				List<String> list3 = dao.selectByGu(gu);
+				System.out.println("동:"+ list3);
+				model.addAttribute("dong_all", list3);
+			}
+			
+			
+			
+			
+			
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
