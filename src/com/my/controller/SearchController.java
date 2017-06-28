@@ -101,16 +101,16 @@ public class SearchController {
 				model.addAttribute("dong_all", list3);
 				
 			} else{ // main바에서 들어올시
+				//gu목록
+				List<String> list2 = dao.selectBySports(sports);
+				System.out.println("구:"+ list2);
+				model.addAttribute("gu_all", list2);
+				
 				//dong목록
 				List<String> list3 = dao.selectByGu(gu);
 				System.out.println("동:"+ list3);
 				model.addAttribute("dong_all", list3);
 			}
-			
-			
-			
-			
-			
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
