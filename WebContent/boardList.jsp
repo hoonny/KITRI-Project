@@ -13,7 +13,7 @@
         line-height:2em;        
         font-family:"맑은 고딕";
         padding-top: -1px;
-        !important
+        margin: 0px;
 }
     ul, li{ 
         list-style:none;
@@ -42,7 +42,7 @@
     
 
     #ulTable > li:first-child > ul > li {
-        background-color:#52E4DC;
+        background-color:#c9c9c9;
         font-weight:bold;
         text-align:center;
         height: 30px;
@@ -68,6 +68,7 @@
         vertical-align:baseline;
         text-align: center;
         font-weight: bold;
+        text-decoration: none;
 }    
 
     #ulTable > li > ul > li:first-child               {width:10%;} /*No 열 크기*/
@@ -104,7 +105,9 @@
         text-align : left;
 }
 
-
+/* .k1:hover{
+ background-color: red;
+} */
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -184,8 +187,13 @@ $(function(){
     	  
       })//클릭
       
-  });
       
+
+      
+      
+  });
+
+
 
 </script>
 
@@ -200,8 +208,7 @@ $(function(){
    <div id="mainWrapper">
         <ul>
             <!-- 게시판 제목 -->
-            <li style=" line-height: 35px; width: 200px; margin: auto; ">신고 & 문의하기</li>
-            <br>
+            <li style=" line-height: 35px; width: 200px; margin: auto; font-size: 20pt; font-family: 배달의민족 도현; src: ./bootstrap/fonts/BMDOHYEON_ttf.ttf">신고 & 문의하기</li>
             <!-- 게시판 목록  -->
             <li>
                 <ul id ="ulTable" >
@@ -223,9 +230,9 @@ $(function(){
                         <ul>
                             <li   style="height: 27px; line-height: 28px;  text-align: center;" class="k1"><%=b.getRepboard_no() %></li>
                             <%if (b.getParent_no() == 0  ){ %>  
-                            <li  class="left" style="height: 27px; line-height: 28px; text-align: center;" class="k2"><a id="k3" href="" style="color: black;" at="<%=b.getRepboard_no()%>" id="viewsup"><%=b.getSubject() %></a></li>
+                            <li  class="left" style="height: 27px; line-height: 28px; text-align: center;" class="k2"><a class="k2" href="" style="color: black;" at="<%=b.getRepboard_no()%>" id="viewsup"><%=b.getSubject() %></a></li>
                              <%} else { %>
-							<li  class="left" style="height: 27px; line-height: 28px; text-align: center;" class="k2"><a id="k3" href="" style="color: #AE905E;" at="<%=b.getRepboard_no()%>" id="viewsup"><%=b.getSubject() %></a></li>                           
+							<li  class="left" style="height: 27px; line-height: 28px; text-align: center;" class="k3"><a class="k3" href="" style="color: #AE905E;" at="<%=b.getRepboard_no()%>" id="viewsup"><%=b.getSubject() %></a></li>                           
                             <%} %>
                             <li  style="height: 27px; line-height: 28px; text-align: center;" class="k4"><%=b.getDate() %></li>
                             <li style="height: 27px; line-height: 28px; text-align: center;" class="k5"><%=b.getNickname() %></li>

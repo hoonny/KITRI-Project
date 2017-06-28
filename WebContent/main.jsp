@@ -172,8 +172,8 @@ $test.click(function(){
     
     <div id="about" class="about-section">
         <div class="container text-center">
-         <h3 style="font-family: 배달의민족 도현">인기 장소는 바로 여기!</h3>
-            <h2 class="section-title" style="font-family: 배달의민족 도현">Hot Service</h2>
+         <h3 style="font-family: 배달의민족 도현; src: ./bootstrap/fonts/BMDOHYEON_ttf.ttf" >인기 장소는 바로 여기!</h3>
+            <h2 class="section-title" style="font-family: 배달의민족 도현; src: ./bootstrap/fonts/BMDOHYEON_ttf.ttf" >Hot Service</h2>
                         
             <div class="items-wrapper row">
                 <div class="item col-sm-4 col-xs-12">
@@ -201,8 +201,8 @@ $test.click(function(){
         </div><!--//container-->
       <hr>
       <div class="container text-center" style="margin-bottom: 10px">
-         <h3 style="font-family: 배달의민족 도현">누가 잘하는지 겨뤄보자!!</h3>
-            <h2 class="section-title" style="font-family: 배달의민족 도현">This is Competition!</h2>
+         <h3 style="font-family: 배달의민족 도현; src: ./bootstrap/fonts/BMDOHYEON_ttf.ttf" >누가 잘하는지 겨뤄보자!!</h3>
+            <h2 class="section-title" style="font-family: 배달의민족 도현; src: ./bootstrap/fonts/BMDOHYEON_ttf.ttf" >This is Competition!</h2>
          <br>
          <div style="width: 100%">
 			<ul style="width: 100%">
@@ -223,12 +223,14 @@ $test.click(function(){
         <h4 class="modal-title" id="myModalLabel">대회 정보</h4>
       </div>
       <div class="modal-body"><!-- 들어가는 내용 부분!!!!!!!!!!  -->
-       <h3 style="font-family: 배달의민족 도현">구로구 동아 배드민턴장</h3>
-              <h5 style="font-family: 배달의민족 도현">(나달,페더러 특별 참가)</h5>
+       <h3 style="font-family: 배달의민족 도현; src: ./bootstrap/fonts/BMDOHYEON_ttf.ttf" >구로구 동아 배드민턴장</h3>
+              <h5 style="font-family: 배달의민족 도현; src: ./bootstrap/fonts/BMDOHYEON_ttf.ttf" >(나달,페더러 특별 참가)</h5>
        
        <hr>
-       <h5>대회 기간 :2017-07-01 ~ 2017 - 08 - 01</h5>
-       유의 사항 : 2017년 6월 28일부터 예선전을 진행 하오니<br> 참가를 희망하는 고객님께서는 
+       나달과 페더러가 테니스에서 배드민턴으로 종목 변경을!!?<br>
+       구로구 동아 배드민턴장만의 특별한 토너먼트! <br><br>
+       <h5>대회 기간 :2017-07-01 ~ 2017 - 08 - 01</h5><br>
+       유의 사항 : 2017년 6월 28일부터 예선전을 진행 하오니<br> 참가를 희망하거나, 문의사항은
        <h5 style="color: red; display: inline-block;">고객센터 (1234-5678)</h5>로 연락 주시기 바랍니다.
       </div>
       <div class="modal-footer">
@@ -250,12 +252,12 @@ $test.click(function(){
         <h4 class="modal-title" id="myModalLabel">대회 정보</h4>
       </div>
       <div class="modal-body"><!-- 들어가는 내용 부분!!!!!!!!!!  -->
-       <h3 style="font-family: 배달의민족 도현">구로구 동아 배드민턴장</h3>
-              <h5 style="font-family: 배달의민족 도현">(나달,페더러 특별 참가)</h5>
+       <h3 style="font-family: 배달의민족 도현; src: ./bootstrap/fonts/BMDOHYEON_ttf.ttf" >강남구 오빠 당구장</h3>
+              <h5 style="font-family: 배달의민족 도현; src: ./bootstrap/fonts/BMDOHYEON_ttf.ttf" >(상금이 무려 8000만원!)</h5>
        
        <hr>
-       <h5>대회 기간 :2017-07-01 ~ 2017 - 08 - 01</h5>
-       유의 사항 : 2017년 6월 28일부터 예선전을 진행 하오니<br> 참가를 희망하는 고객님께서는 
+       <h5>대회 기간 :2017-08-03 ~ 2017 - 09 - 01</h5><br>
+       유의 사항 : 종목은 3쿠션이며, 개인 장비를 사용해도 무관합니다. <br> 참가를 희망하는 고객님께서는 
        <h5 style="color: red; display: inline-block;">고객센터 (1234-5678)</h5>로 연락 주시기 바랍니다.
       </div>
       <div class="modal-footer">
@@ -275,12 +277,16 @@ $test.click(function(){
         <h4 class="modal-title" id="myModalLabel">대회 정보</h4>
       </div>
       <div class="modal-body"><!-- 들어가는 내용 부분!!!!!!!!!!  -->
-       <h3 style="font-family: 배달의민족 도현">구로구 동아 배드민턴장</h3>
-              <h5 style="font-family: 배달의민족 도현">(나달,페더러 특별 참가)</h5>
-       
+       <h3 style="font-family: 배달의민족 도현; src: ./bootstrap/fonts/BMDOHYEON_ttf.ttf" >마포구 홍대볼링장</h3>
+              <h5 style="font-family: 배달의민족 도현; src: ./bootstrap/fonts/BMDOHYEON_ttf.ttf" >(김수현을 이겨라!!)</h5>
+              <img src="./bootstrap/assets/images/666.jpg" style="width: 304px; height: 288px" >
        <hr>
-       <h5>대회 기간 :2017-07-01 ~ 2017 - 08 - 01</h5>
-       유의 사항 : 2017년 6월 28일부터 예선전을 진행 하오니<br> 참가를 희망하는 고객님께서는 
+      	 연기자겸 볼링 프로 자격증을 소지한 김수현(30)을 <br>
+     	이길수 있는 진정한 볼링 고수를 찾는다! 
+       <h5>대회 기간 :2017-07-07 ~ 2017 - 07 - 16</h5><br>
+       유의 사항 : 볼링자격증을 소지한분은 토너먼트 16강부터 시작하게 됩니다.<br>
+       해당 볼링장에는 주차장이 따로 마련되어있지 않으니 가급적 대중교통을 이용 바랍니다.<br>
+       참가를 희망하는 고객님께서는 
        <h5 style="color: red; display: inline-block;">고객센터 (1234-5678)</h5>로 연락 주시기 바랍니다.
       </div>
       <div class="modal-footer">
@@ -300,8 +306,8 @@ $test.click(function(){
         <h4 class="modal-title" id="myModalLabel">대회 정보</h4>
       </div>
       <div class="modal-body"><!-- 들어가는 내용 부분!!!!!!!!!!  -->
-       <h3 style="font-family: 배달의민족 도현">구로구 동아 배드민턴장</h3>
-              <h5 style="font-family: 배달의민족 도현">(나달,페더러 특별 참가)</h5>
+       <h3 style="font-family: 배달의민족 도현; src: ./bootstrap/fonts/BMDOHYEON_ttf.ttf" >구로구 동아 배드민턴장</h3>
+              <h5 style="font-family: 배달의민족 도현; src: ./bootstrap/fonts/BMDOHYEON_ttf.ttf" >(나달,페더러 특별 참가)</h5>
        
        <hr>
        <h5>대회 기간 :2017-07-01 ~ 2017 - 08 - 01</h5>
