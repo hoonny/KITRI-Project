@@ -22,7 +22,7 @@
     <!-- Theme CSS -->  
     <link id="theme-style" rel="stylesheet" href="./bootstrap/assets/css/styles.css">
 	<!-- Search CSS -->
-	<link rel="stylesheet" type="text/css" href="search.css?ver=4"> 
+	<link rel="stylesheet" type="text/css" href="search.css?ver=1"> 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -229,7 +229,7 @@
 					<p>가격 : ${p.price }</p>
 					<p>${p.call_no }</p>
 					<input type="hidden" name="center_id" value="${p.center_id }" readonly>
-					<button class="bt_gps btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"  type="button" value="${p.sport_name},${p.gu},${p.dong},${p.latitude},${p.longtitude}" id="btGps${p.center_id }" onclick="gpsMap(this.value)" style="background-color: white;border:none; outline: none;">
+					<button class="bt_gps btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"  type="button" value="${p.sport_name},${p.center_name},${p.gu},${p.dong},${p.latitude},${p.longtitude}" id="btGps${p.center_id }" onclick="gpsMap(this.value)" style="background-color: white;border:none; outline: none;">
 						<img src="./bootstrap/assets/images/btgps.png">
 					</button>	
 					<!-- ************************지도 Modal*************************** -->
@@ -242,32 +242,10 @@
 					      <div class="modal-body" style="padding-left: 0px;padding-right: 0px;padding-top: 0px;padding-bottom: 15px">
 					      	<div id="map" style="width: 100%; height: 500px;">로딩중</div>
 					      </div>
-					      <div class="modal-footer" style="height: 60px;padding: 0px;">
-					        <div id="${p.latitude},${p.longtitude}" style="display:none">					
-								<%-- <div class="fix_text">
-									<p>${p.gu } ${p.dong } ${p.adress }</p>
-								</div> --%>
-								<div class="fix_zoom">
-									<button class="btZoomin btn btn-default" type="button" value="${p.center_name},${p.latitude},${p.longtitude}" onclick="zoomMap(this.value)">
-										<img src="./bootstrap/assets/images/bt_zoomin.png">
-									</button>
-								</div>												
-							</div>
-					      </div>
 					    </div>
 					  </div>
 					</div>				
 					<button type="button" class="btn btn-default">예약</button>
-					<div id="${p.latitude},${p.longtitude}" style="display:none">					
-						<div class="fix_text">
-							<p>${p.gu } ${p.dong } ${p.adress }</p>
-						</div>
-						<div class="fix_zoom">
-							<button class="btZoomin" type="button" value="${p.center_name},${p.latitude},${p.longtitude}" onclick="zoomMap(this.value)">
-								<img src="./bootstrap/assets/images/bt_zoomin.png">
-							</button>
-						</div>						
-					</div>
 				</div>		    
 			</div>
 		<!-- </form> -->
@@ -279,38 +257,19 @@
 	<!-- **************************지도 리스트************************* -->
 			<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=d176cdd19165736594ab4a5e1c323d50"></script>
 			<script>
-			function gpsMap(sport_name_gu_dong_latitude_longtitude) {
-				console.log(sport_name_gu_dong_latitude_longtitude);
+			function gpsMap(sport_name_center_name_gu_dong_latitude_longtitude) {
+				console.log(sport_name_center_name_gu_dong_latitude_longtitude);
 				$('#map').empty();
 				setTimeout(function(){
-					var str = sport_name_gu_dong_latitude_longtitude;
+					var str = sport_name_center_name_gu_dong_latitude_longtitude;
 					//alert(str);
 					var res = str.split(",");
 					var $sport_name = res[0];
-					var $gu = res[1];
-					var $dong = res[2];
-					var $latitude = res[3];
-					var $longtitude = res[4];
-
-					//해당하는div 보이기		
-					var $no = localStorage.getItem("onId");
-					var $st_sport_name = localStorage.getItem("sport_name");
-					var $st_gu = localStorage.getItem("gu");
-					var $st_dong = localStorage.getItem("dong");
-					//alert($no);
-					if ($no != null) {
-						if ($st_sport_name == $sport_name && $st_gu == $gu && $st_dong == $dong) {
-							document.getElementById($no).style.display = "none";
-						}
-						$("latitude_longtitude").hide();
-						localStorage.removeItem("onId");
-					}
-					var $onId = res[3] + "," + res[4];
-					localStorage.setItem("onId", $onId);
-					localStorage.setItem("sport_name", $sport_name);
-					localStorage.setItem("gu", $gu);
-					localStorage.setItem("dong", $dong);
-					document.getElementById($onId).style.display = "block";
+					var $center_name = res[1];
+					var $gu = res[2];
+					var $dong = res[3];
+					var $latitude = res[4];
+					var $longtitude = res[5];
 
 					console.log("위도: " + $latitude + ", 경도: " + $longtitude);
 
@@ -320,66 +279,33 @@
 						level : 3
 					};
 					var map = new daum.maps.Map(container, options);
+					
+					// 마커가 표시될 위치입니다 
+					var markerPosition  = new daum.maps.LatLng($latitude,$longtitude); 
+
+					// 마커를 생성합니다
+					var marker = new daum.maps.Marker({
+					    position: markerPosition
+					});
+
+					// 마커가 지도 위에 표시되도록 설정합니다
+					marker.setMap(map);
+					
+					var iwContent = '<div style="padding:5px;">'+$center_name+'<br><a href="http://map.daum.net/link/map/'+$center_name+','+$latitude+','+$longtitude+'" style="color:blue" target="_blank">큰지도보기</a> <a href="http://map.daum.net/link/to/'+$center_name+','+$latitude+','+$longtitude+'" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+				    iwPosition = new daum.maps.LatLng($latitude,$longtitude); //인포윈도우 표시 위치입니다
+
+					// 인포윈도우를 생성합니다
+					var infowindow = new daum.maps.InfoWindow({
+					    position : iwPosition, 
+					    content : iwContent 
+					});
+					  
+					// 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+					infowindow.open(map, marker);
+
 				},2000) 
 			}
-			
-			/* 
-			var container = document.getElementById('map');
-					var options = {
-							center : new daum.maps.LatLng(37.566405, 126.977946),
-							level : 3
-						};
-					
-					var map = new daum.maps.Map(container, options);
-					*/
 			</script>
-			
-				
-				<!-- <script>
-					function gpsMap(sport_name_gu_dong_latitude_longtitude) {
-						console.log(sport_name_gu_dong_latitude_longtitude);
-
-						var str = sport_name_gu_dong_latitude_longtitude;
-						//alert(str);
-						var res = str.split(",");
-						var $sport_name = res[0];
-						var $gu = res[1];
-						var $dong = res[2];
-						var $latitude = res[3];
-						var $longtitude = res[4];
-
-						//해당하는div 보이기		
-						var $no = localStorage.getItem("onId");
-						var $st_sport_name = localStorage.getItem("sport_name");
-						var $st_gu = localStorage.getItem("gu");
-						var $st_dong = localStorage.getItem("dong");
-						//alert($no);
-						if ($no != null) {
-							if ($st_sport_name == $sport_name && $st_gu == $gu && $st_dong == $dong) {
-								document.getElementById($no).style.display = "none";
-							}
-							$("latitude_longtitude").hide();
-							localStorage.removeItem("onId");
-						}
-						var $onId = res[3] + "," + res[4];
-						localStorage.setItem("onId", $onId);
-						localStorage.setItem("sport_name", $sport_name);
-						localStorage.setItem("gu", $gu);
-						localStorage.setItem("dong", $dong);
-						document.getElementById($onId).style.display = "block";
-
-						console.log("위도: " + $latitude + ", 경도: " + $longtitude);
-
-						var container = document.getElementById('map');
-						var options = {
-							center : new daum.maps.LatLng($latitude,$longtitude),
-							level : 3
-						};
-						var map = new daum.maps.Map(container, options);
-					}
-				
-				</script> -->
-			
 </article>  
 <!-- **************************지도 리스트************************* -->		
 
