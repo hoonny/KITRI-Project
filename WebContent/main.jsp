@@ -24,6 +24,11 @@
     <![endif]-->
 	
     <style>
+    .bt_likeOff {
+	border: none;
+	padding: 0px;
+	margin: 0px;
+}
 .search {
     margin-top: -25%;
 }
@@ -45,26 +50,31 @@ a{
 $(function(){
 
 	var $test = $(".sub-slide>ul>li>button");
-	$test.click(function(){
-		
-		var $gu = $(this).text();
-		var $sports = $(this).parent().siblings("h4").text();
-		console.log($gu);
-		console.log($sports);
-		$.ajax({
-			url : 'search.do',
-			data : {sports : $sports, gu : $gu},
-			type : 'post',
-			success : function(data){
-				$("body").empty();
-				$("body").html(data);
-			}
-		})//ajax
-	})//클릭
-})//끝
+	
 
 
 
+$test.click(function(){
+    
+    var $gu = $(this).text();
+    
+    var $sports = $(this).parent().siblings("h4").text();
+    alert("1");
+    console.log($gu);
+    //alert("2");
+    console.log($sports);
+    $.ajax({
+       url : 'search.do',
+       data : {sports : $sports, gu : $gu},
+       type : 'post',
+       success : function(data){
+          alert("성공");
+          location.href ="search.do";
+       }
+    })//ajax
+ }) //클릭
+
+})
 </script>
 </head> 
 
@@ -162,8 +172,8 @@ $(function(){
     
     <div id="about" class="about-section">
         <div class="container text-center">
-         <h3>인기 장소는 바로 여기!</h3>
-            <h2 class="section-title">Hot Service</h2>
+         <h3 style="font-family: 배달의민족 도현">인기 장소는 바로 여기!</h3>
+            <h2 class="section-title" style="font-family: 배달의민족 도현">Hot Service</h2>
                         
             <div class="items-wrapper row">
                 <div class="item col-sm-4 col-xs-12">
@@ -191,19 +201,121 @@ $(function(){
         </div><!--//container-->
       <hr>
       <div class="container text-center" style="margin-bottom: 10px">
-         <h3>누가 잘하는지 겨뤄보자!!</h3>
-            <h2 class="section-title">This is Competition!</h2>
+         <h3 style="font-family: 배달의민족 도현">누가 잘하는지 겨뤄보자!!</h3>
+            <h2 class="section-title" style="font-family: 배달의민족 도현">This is Competition!</h2>
          <br>
          <div style="width: 100%">
 			<ul style="width: 100%">
-			<li style="width: 33%;height:100%;float: left;padding-left: 0px;padding-right: 5px;"><div style="border: 1px solid;"><img src="./bootstrap/assets/images/11.jpg" style="width: 100%;height:582px;" alt="image"></div></li>
+			<li style="width: 33%;height:100%;float: left;padding-left: 0px;padding-right: 5px;"><div style="border: 1px solid;"><button class="bt_likeOff" style="width: 100%;height:582px;" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1"><img src="./bootstrap/assets/images/11.jpg" style="width: 100%;height:100%;" alt="image"></button></div></li>
 			<li style="width: 33%;float: left;padding-left: 0px;padding-right: 5px;">
-				<div style="border: 1px solid;margin-bottom: 5px"><img src="./bootstrap/assets/images/22.jpg" style="width: 100%;height:288px;" alt="image"></div>
-				<div style="border: 1px solid;"><img src="./bootstrap/assets/images/33.jpg" style="width: 100%;height:287px;" alt="image"></div>
+				<div style="border: 1px solid;margin-bottom: 5px"><button class="bt_likeOff" style="width: 100%;height:288px;" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2"><img src="./bootstrap/assets/images/22.jpg" style="width: 100%;height:100%;" alt="image"></button></div>
+				<div style="border: 1px solid;"><button class="bt_likeOff" style="width: 100%;height:288px;" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal3"><img src="./bootstrap/assets/images/33.jpg" style="width: 100%;height:100%;" alt="image"></button></div>
 			</li>
-			<li style="width: 33%;height:100%;float: left;padding-left: 0px;padding-right: 5px;"><div style="border: 1px solid;"><img src="./bootstrap/assets/images/44.jpg" style="width: 100%;height:582px;" alt="image"></div></li>
+			<li style="width: 33%;height:100%;float: left;padding-left: 0px;padding-right: 5px;"><div style="border: 1px solid;"><button class="bt_likeOff" style="width: 100%;height:582px;" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal4"><img src="./bootstrap/assets/images/44.jpg" style="width: 100%;height:582px;" alt="image"></button></div></li>
 			</ul>
 		 </div>
+		 <!-- 모달!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 첫번쨰 모달! -->
+			<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">대회 정보</h4>
+      </div>
+      <div class="modal-body"><!-- 들어가는 내용 부분!!!!!!!!!!  -->
+       <h3 style="font-family: 배달의민족 도현">구로구 동아 배드민턴장</h3>
+              <h5 style="font-family: 배달의민족 도현">(나달,페더러 특별 참가)</h5>
+       
+       <hr>
+       <h5>대회 기간 :2017-07-01 ~ 2017 - 08 - 01</h5>
+       유의 사항 : 2017년 6월 28일부터 예선전을 진행 하오니<br> 참가를 희망하는 고객님께서는 
+       <h5 style="color: red; display: inline-block;">고객센터 (1234-5678)</h5>로 연락 주시기 바랍니다.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+		 
+		 
+		 
+		 
+			<!-- 모달!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 두번째 모달! -->
+			<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">대회 정보</h4>
+      </div>
+      <div class="modal-body"><!-- 들어가는 내용 부분!!!!!!!!!!  -->
+       <h3 style="font-family: 배달의민족 도현">구로구 동아 배드민턴장</h3>
+              <h5 style="font-family: 배달의민족 도현">(나달,페더러 특별 참가)</h5>
+       
+       <hr>
+       <h5>대회 기간 :2017-07-01 ~ 2017 - 08 - 01</h5>
+       유의 사항 : 2017년 6월 28일부터 예선전을 진행 하오니<br> 참가를 희망하는 고객님께서는 
+       <h5 style="color: red; display: inline-block;">고객센터 (1234-5678)</h5>로 연락 주시기 바랍니다.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+		
+		
+		<!-- 모달!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 세번쨰 모달! -->
+			<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">대회 정보</h4>
+      </div>
+      <div class="modal-body"><!-- 들어가는 내용 부분!!!!!!!!!!  -->
+       <h3 style="font-family: 배달의민족 도현">구로구 동아 배드민턴장</h3>
+              <h5 style="font-family: 배달의민족 도현">(나달,페더러 특별 참가)</h5>
+       
+       <hr>
+       <h5>대회 기간 :2017-07-01 ~ 2017 - 08 - 01</h5>
+       유의 사항 : 2017년 6월 28일부터 예선전을 진행 하오니<br> 참가를 희망하는 고객님께서는 
+       <h5 style="color: red; display: inline-block;">고객센터 (1234-5678)</h5>로 연락 주시기 바랍니다.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 모달!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 네번쨰 모달! -->
+			<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">대회 정보</h4>
+      </div>
+      <div class="modal-body"><!-- 들어가는 내용 부분!!!!!!!!!!  -->
+       <h3 style="font-family: 배달의민족 도현">구로구 동아 배드민턴장</h3>
+              <h5 style="font-family: 배달의민족 도현">(나달,페더러 특별 참가)</h5>
+       
+       <hr>
+       <h5>대회 기간 :2017-07-01 ~ 2017 - 08 - 01</h5>
+       유의 사항 : 2017년 6월 28일부터 예선전을 진행 하오니<br> 참가를 희망하는 고객님께서는 
+       <h5 style="color: red; display: inline-block;">고객센터 (1234-5678)</h5>로 연락 주시기 바랍니다.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+		
+		
 		
 		
 		
@@ -265,12 +377,20 @@ $(function(){
                   </div>//item-inner
                </div>//item -->
         </div><!--//container-->
-</article>  
+</article>
+<br>
+<br>
+<br>
+<br>
+<br>
     <footer class="footer text-center">
         <div class="container">
             <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
-            <small class="copyright">본 웹 페이지는 현재 FairPlay 팀에서 운용하고 있는 생활체육 검색 시스템이 적용 되어 있습니다. <br>
-									 copyright ⓒ 2017. ALL RIGHTS RESERVED BY KITRI FairPlay</small>
+            <small class="copyright">본 웹 페이지는 현재 FairPlay 팀에서 운영하고 있는 생활체육 검색 시스템이 적용 되어 있습니다. <br>
+            								사업자등록번호 : 123-45-6789  통신판매업신고 : 제 1234-서울금천-12345호<br>
+											서울특별시 구로구 디지털로34길 43 코오롱싸이언스밸리1차 401호 ㈜ 우리동네 예체능 (대표자 : 윤웅재)<br>
+											고객센터 1234-5678 (평일 오전 8시 ~ 오후 8시 / 주말 및 공휴일 오전 9시 ~ 오후 6시)<br>
+											 copyright ⓒ 2017. ALL RIGHTS RESERVED BY KITRI FairPlay</small>
             
         </div><!--//container-->
     </footer>
