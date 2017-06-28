@@ -190,32 +190,24 @@ $(function(){
             </div><!--//items-wrapper-->
         </div><!--//container-->
       <hr>
-      <div class="container text-center">
+      <div class="container text-center" style="margin-bottom: 10px">
          <h3>누가 잘하는지 겨뤄보자!!</h3>
             <h2 class="section-title">This is Competition!</h2>
          <br>
-		 
-		<div style="width:50%; margin:auto;"> 
-		 <div class="btn-group btn-group-justified" role="group" aria-label="...">
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-default">당구</button>
-			</div>
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-default">배드민턴</button>
-			</div>
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-default">테니스</button>
-			</div>
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-default">볼링</button>
-			</div>
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-default">탁구</button>
-			</div>
-		</div>
-		</div>
+         <div style="width: 100%">
+			<ul style="width: 100%">
+			<li style="width: 33%;height:100%;float: left;padding-left: 0px;padding-right: 5px;"><div style="border: 1px solid;"><img src="./bootstrap/assets/images/11.png" style="width: 100%;height:100%;" alt="image"></div></li>
+			<li style="width: 33%;float: left;padding-left: 0px;padding-right: 5px;">
+				<div style="border: 1px solid;margin-bottom: 5px"><img src="./bootstrap/assets/images/3.jpg" style="width: 100%;height:100%;" alt="image"></div>
+				<div style="border: 1px solid;"><img src="./bootstrap/assets/images/3.jpg" style="width: 100%;height:100%;" alt="image"></div>
+			</li>
+			<li style="width: 33%;height:100%;float: left;padding-left: 0px;padding-right: 5px;"><div style="border: 1px solid;"><img src="./bootstrap/assets/images/3.jpg" style="width: 100%;height:100%;" alt="image"></div></li>
+			</ul>
+		 </div>
 		
-            <div class="items-wrapper row">
+		
+		
+            <!-- <div class="items-wrapper row">
                <div class="item col-sm-4 col-xs-12">
                   <div class="item-inner">
                      <div class="figure-holder">
@@ -231,9 +223,9 @@ $(function(){
 							신청 : http://www.js.com
                          </div>
                        </div>
-                     </div><!--//figure-holder-->                  
-                  </div><!--//item-inner-->
-               </div><!--//item-->
+                     </div>//figure-holder                  
+                  </div>//item-inner
+               </div>//item
 			   
                <div class="item col-sm-4 col-xs-12">
                   <div class="item-inner">
@@ -250,9 +242,9 @@ $(function(){
 							신청 : http://www.js.com
                          </div>
                        </div>
-                     </div><!--//figure-holder-->                  
-                  </div><!--//item-inner-->
-               </div><!--//item-->
+                     </div>//figure-holder                  
+                  </div>//item-inner
+               </div>//item
 			   
                <div class="item col-sm-4 col-xs-12">
                   <div class="item-inner">
@@ -269,9 +261,9 @@ $(function(){
 							신청 : http://www.js.com
                          </div>
                        </div>
-                     </div><!--//figure-holder-->                  
-                  </div><!--//item-inner-->
-               </div><!--//item-->
+                     </div>//figure-holder                  
+                  </div>//item-inner
+               </div>//item -->
         </div><!--//container-->
 </article>  
     <footer class="footer text-center">
