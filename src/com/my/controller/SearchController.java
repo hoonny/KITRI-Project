@@ -106,11 +106,6 @@ public class SearchController {
 				System.out.println("동:"+ list3);
 				model.addAttribute("dong_all", list3);
 			}
-			
-			
-			
-			
-			
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}

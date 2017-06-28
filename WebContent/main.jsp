@@ -50,30 +50,22 @@ a{
 $(function(){
 
 	var $test = $(".sub-slide>ul>li>button");
-	
-
-
-
-$test.click(function(){
-    
-    var $gu = $(this).text();
-    
-    var $sports = $(this).parent().siblings("h4").text();
-    alert("1");
-    console.log($gu);
-    //alert("2");
-    console.log($sports);
-    $.ajax({
-       url : 'search.do',
-       data : {sports : $sports, gu : $gu},
-       type : 'post',
-       success : function(data){
-          alert("성공");
-          location.href ="search.do";
-       }
-    })//ajax
- }) //클릭
-
+	$test.click(function(){    
+	    var $gu = $(this).text();    
+	    var $sports = $(this).parent().siblings("h4").text();
+	    //alert("1");
+	    console.log($gu);
+	    //alert("2");
+	    console.log($sports);
+	    $.ajax({
+	       url : 'searchmain.do',
+	       data : {sports : $sports, gu : $gu},
+	       type : 'post',
+	       success : function(data){
+	    	   
+	       }
+	    })//ajax
+	}) //클릭
 })
 </script>
 </head> 
@@ -172,7 +164,7 @@ $test.click(function(){
     
     <div id="about" class="about-section">
         <div class="container text-center">
-         <h3 style="font-family: 배달의민족 도현; src: ./bootstrap/fonts/BMDOHYEON_ttf.ttf" >인기 장소는 바로 여기!</h3>
+         <h3 style="font-family: 배달의민족 도현; src: ./bootstrap/fonts/BMDOHYEON_ttf.ttf">인기 장소는 바로 여기!</h3>
             <h2 class="section-title" style="font-family: 배달의민족 도현; src: ./bootstrap/fonts/BMDOHYEON_ttf.ttf" >Hot Service</h2>
                         
             <div class="items-wrapper row">
@@ -199,6 +191,7 @@ $test.click(function(){
                 </div><!--//item-->
             </div><!--//items-wrapper-->
         </div><!--//container-->
+        </div>
       <hr>
       <div class="container text-center" style="margin-bottom: 10px">
          <h3 style="font-family: 배달의민족 도현; src: ./bootstrap/fonts/BMDOHYEON_ttf.ttf" >누가 잘하는지 겨뤄보자!!</h3>
