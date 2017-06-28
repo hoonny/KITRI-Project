@@ -13,17 +13,20 @@
         line-height:2em;        
         font-family:"맑은 고딕";
         padding-top: -1px;
+        !important
 }
     ul, li{ 
         list-style:none;
         text-align:center;
         padding:0;
         margin:0;
+        !important
 }
 
     #mainWrapper{
         width: 55%;
         margin: 0 auto; /*가운데 정렬*/
+        !important
     }
 
     #mainWrapper > ul > li:first-child {
@@ -32,6 +35,7 @@
         height:40px;
         vertical-align:middle;
         line-height:30px;
+        !important
 }
 
     #ulTable {margin-top:10px;}
@@ -43,7 +47,6 @@
         text-align:center;
         height: 30px;
         line-height: 30px;
-        border-left: 2px outset;
         font-size: 13px;
 }
 
