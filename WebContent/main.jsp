@@ -196,12 +196,12 @@ $(function(){
          <br>
          <div style="width: 100%">
 			<ul style="width: 100%">
-			<li style="width: 33%;height:100%;float: left;padding-left: 0px;padding-right: 5px;"><div style="border: 1px solid;"><img src="./bootstrap/assets/images/11.png" style="width: 100%;height:100%;" alt="image"></div></li>
+			<li style="width: 33%;height:100%;float: left;padding-left: 0px;padding-right: 5px;"><div style="border: 1px solid;"><img src="./bootstrap/assets/images/11.jpg" style="width: 100%;height:582px;" alt="image"></div></li>
 			<li style="width: 33%;float: left;padding-left: 0px;padding-right: 5px;">
-				<div style="border: 1px solid;margin-bottom: 5px"><img src="./bootstrap/assets/images/3.jpg" style="width: 100%;height:100%;" alt="image"></div>
-				<div style="border: 1px solid;"><img src="./bootstrap/assets/images/3.jpg" style="width: 100%;height:100%;" alt="image"></div>
+				<div style="border: 1px solid;margin-bottom: 5px"><img src="./bootstrap/assets/images/22.jpg" style="width: 100%;height:288px;" alt="image"></div>
+				<div style="border: 1px solid;"><img src="./bootstrap/assets/images/33.jpg" style="width: 100%;height:287px;" alt="image"></div>
 			</li>
-			<li style="width: 33%;height:100%;float: left;padding-left: 0px;padding-right: 5px;"><div style="border: 1px solid;"><img src="./bootstrap/assets/images/3.jpg" style="width: 100%;height:100%;" alt="image"></div></li>
+			<li style="width: 33%;height:100%;float: left;padding-left: 0px;padding-right: 5px;"><div style="border: 1px solid;"><img src="./bootstrap/assets/images/44.jpg" style="width: 100%;height:582px;" alt="image"></div></li>
 			</ul>
 		 </div>
 		
