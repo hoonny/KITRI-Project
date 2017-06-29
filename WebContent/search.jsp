@@ -115,21 +115,12 @@
 			var str = booking_site;
 			var res = str.split(",");
 			var $booking = res[0];
-			var $booking_site = res[1];
-			var url = "searchreserve.do";
-			$.ajax({url : url,
-					method : 'POST',
-					data : {"booking" : $booking, "booking_site": $booking_site},
-					success : function(data) {
-						if(data == 1){
-	                    	alert("관심목록 등록.")
-	                    }else if (data == 2){
-	                    	alert("이미 등록된 곳입니다.")
-	                    }else{
-	                    	alert("최대 5개까지만 등록 가능합니다.")
-	                    }
-					}
-			});
+			var $book_site = res[1];
+			if($booking == 0){
+				alert("☎ 예약이 불가능합니다.");
+			}else {
+				location.href = "http://"+ $book_site;
+			}
 			return false; //기본이벤트(submit핸들러: method=get, action="")가 처리됨
 		}
 	</script>
