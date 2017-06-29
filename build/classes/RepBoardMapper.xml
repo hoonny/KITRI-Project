@@ -134,6 +134,16 @@
    		select count(*) from repboard
    </select>
    
+   <!--  게시판 검색 해당 글 갯수 -->
+   <select id = 'getCountbySmt' parameterType = "string" resultType = "int">
+   		select count(*) from repboard
+   		<if test = "">
+   		
+   		</if>
+   		
+   </select>
+  	
+   
    
    
    
