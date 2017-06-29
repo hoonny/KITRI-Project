@@ -299,8 +299,12 @@ body {
     
 </body>
     <script type="text/javascript">
+<<<<<<< .merge_file_a09456
         var textarea = document.getElementById("messageWindow");
         var webSocket = new WebSocket('ws://localhost:8888/Project2/broadcasting');
+=======
+        var webSocket = new WebSocket('ws://192.168.12.25:8888/Project2/broadcasting');
+>>>>>>> .merge_file_a13512
         var inputMessage = document.getElementById('inputMessage');
     webSocket.onerror = function(event) {
       onError(event);
@@ -311,6 +315,12 @@ body {
     webSocket.onmessage = function(event) {
       onMessage(event);
     };
+<<<<<<< .merge_file_a09456
+=======
+    webSocket.onClose = function(event){
+    	onClose(event);
+    }
+>>>>>>> .merge_file_a13512
     function onMessage(event) {
         var html = '<div class="you_tle">';
         html += '<div class="you_title">YOU</div>';
@@ -319,12 +329,21 @@ body {
         document.getElementById("messageWindow").innerHTML += html;
         var objDiv = document.getElementById("messageWindow");
     	objDiv.scrollTop = objDiv.scrollHeight;
+<<<<<<< .merge_file_a09456
     	QApplication:alert(this); 
+=======
+>>>>>>> .merge_file_a13512
     }
     function onOpen(event) {
         var html = '<span style="width:100%; height:20px; text-align:center;">방에 입장하셨습니다.<span>';
         document.getElementById("messageWindow").innerHTML += html;
     }
+<<<<<<< .merge_file_a09456
+=======
+    function onClose(event){
+    	window.close();
+    }
+>>>>>>> .merge_file_a13512
     function onError(event) {
       alert(event.data);
     }
@@ -341,4 +360,8 @@ body {
     	}
     }
   </script>
+<<<<<<< .merge_file_a09456
 </html>
+=======
+  </html>
+>>>>>>> .merge_file_a13512

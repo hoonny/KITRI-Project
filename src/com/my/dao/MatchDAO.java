@@ -65,5 +65,16 @@ public class MatchDAO {
 			throw e;
 		}
 	}
+<<<<<<< .merge_file_a15248
+=======
+	
+	public Match_room selectOwner(String email) throws NamingException{
+		try{
+			return session.selectOne("Match_roomMapper.selectOwner", email);
+		} catch(Exception e){
+			throw e;
+		}
+	}
+>>>>>>> .merge_file_a01656
 
 }

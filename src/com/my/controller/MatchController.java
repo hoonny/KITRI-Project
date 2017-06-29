@@ -68,20 +68,28 @@ public class MatchController {
 			                                      String center_name, String match_type, String level) {
 	      Customer c = (Customer)session.getAttribute("loginInfo");
 	      String email = c.getEmail();
+<<<<<<< .merge_file_a10068
 	      Match_room m = (Match_room)session.getAttribute("roomInfo"); 
+=======
+	      Match_room matchRoom = new Match_room();
+>>>>>>> .merge_file_a17332
 	    	  
 	      int center_id = 0;
 	      int location_id = 0;
 	      try {  
+<<<<<<< .merge_file_a10068
 	       if((m == null)){
 	    	  model.addAttribute("flagroom","1"); 
 	       } else {
 	    	   String email2 = m.getEmail();
 	    	   if(!(email.equals(email2))){ 
+=======
+>>>>>>> .merge_file_a17332
 	  	    	 Sports id_list = mdao.searchid(center_name);
 	  	    	 center_id = id_list.getCenter_id();
 	  	    	 location_id = id_list.getLocation_id();
 	  	    	 System.out.println(":"+ center_id + ":" + location_id );
+<<<<<<< .merge_file_a10068
 	  	    	 Match_room matchRoom = new Match_room();
 	  	    	 matchRoom.setEmail(email);
 	  	    	 matchRoom.setCenter_id(center_id);
@@ -99,6 +107,34 @@ public class MatchController {
 	         e.printStackTrace();
 	      }
 	      String forwardURL = "/matching.do";
+=======
+	  	    	 
+	  	    	 Match_room mr = new Match_room();
+	  	    	 mr = mdao.selectOwner(email); // Login session을 이용해서 방이 생성됬는지 유무 체크
+	  	    	 if(mr == null){
+	  	    		 model.addAttribute("msg","0");
+	  	    	 } else {
+	  	    		System.out.println("mr :"+ mr);
+		 
+		  	    	 matchRoom.setEmail(email);
+		  	    	 matchRoom.setCenter_id(center_id);
+		  	    	 matchRoom.setLocation_id(location_id);
+		  	    	 matchRoom.setMatch_type(match_type);
+		  	    	 matchRoom.setLevel(level);
+		  	    	 matchRoom.setOwner(email);
+		  	    	 matchRoom.setCount(1);
+		  	    	 mdao.roommake(matchRoom);
+		  	    	 System.out.println("matchRoom :"+ matchRoom);
+		  	    	 
+		  	    	 matchRoom.make(mr.getRoom_id(), 1, email);
+		  	    	 model.addAttribute("msg","1");
+	  	    	 }
+	  	    	 
+	  	    } catch (NamingException e) {
+	         e.printStackTrace();
+	      }
+	      String forwardURL = "/result.jsp";
+>>>>>>> .merge_file_a17332
 	      return forwardURL;
 	   }
 

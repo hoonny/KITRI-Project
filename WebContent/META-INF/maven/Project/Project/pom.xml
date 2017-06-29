@@ -51,6 +51,10 @@
           <artifactId>spring-websocket</artifactId>
           <version>4.1.6.RELEASE</version>
       </dependency>
+<<<<<<< .merge_file_a13240
+=======
+      
+>>>>>>> .merge_file_a19688
 	
   </dependencies>
   <packaging>war</packaging>
