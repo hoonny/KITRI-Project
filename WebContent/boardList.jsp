@@ -24,8 +24,8 @@
 }
 
     #mainWrapper{
-        width: 55%;
-        margin: 0 auto; /*가운데 정렬*/
+        width:610px;
+        margin: auto;
         !important
     }
 
@@ -103,6 +103,10 @@
 
     .left {
         text-align : left;
+}
+#viewsup:hover {
+        text-align : left;
+        text-shadow: 1px 1px 1px black;
 }
 
 /* .k1:hover{
@@ -198,17 +202,17 @@ $(function(){
 </script>
 
 </head>
-<body>
+<body style="background-color: #F9FFFF">
 <header> 
      <jsp:include page="menu.jsp"></jsp:include>
 </header>
    <br><br><br>
-   <article>
+   <article style="width: 700px; margin: auto;">
    <form method="post">
    <div id="mainWrapper">
         <ul>
             <!-- 게시판 제목 -->
-            <li style=" line-height: 35px; width: 200px; margin: auto; font-size: 20pt; font-family: 배달의민족 도현; src: ./bootstrap/fonts/BMDOHYEON_ttf.ttf">신고 & 문의하기</li>
+            <li style=" line-height: 35px; float:left; font-size: 20pt; font-family: 배달의민족 도현; src: ./bootstrap/fonts/BMDOHYEON_ttf.ttf">신고 & 문의하기</li>
             <!-- 게시판 목록  -->
             <li>
                 <ul id ="ulTable" >
@@ -232,7 +236,7 @@ $(function(){
                             <%if (b.getParent_no() == 0  ){ %>  
                             <li  class="left" style="height: 27px; line-height: 28px; text-align: center;" class="k2"><a class="k2" href="" style="color: black;" at="<%=b.getRepboard_no()%>" id="viewsup"><%=b.getSubject() %></a></li>
                              <%} else { %>
-							<li  class="left" style="height: 27px; line-height: 28px; text-align: center;" class="k3"><a class="k3" href="" style="color: #AE905E;" at="<%=b.getRepboard_no()%>" id="viewsup"><%=b.getSubject() %></a></li>                           
+							<li  class="left" style="height: 27px; line-height: 28px; text-align: center;" class="k2"><a class="k2" href="" style="color: #AE905E;" at="<%=b.getRepboard_no()%>" id="viewsup"><%=b.getSubject() %></a></li>                           
                             <%} %>
                             <li  style="height: 27px; line-height: 28px; text-align: center;" class="k4"><%=b.getDate() %></li>
                             <li style="height: 27px; line-height: 28px; text-align: center;" class="k5"><%=b.getNickname() %></li>

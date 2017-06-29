@@ -199,6 +199,7 @@ $test.click(function(){
                 </div><!--//item-->
             </div><!--//items-wrapper-->
         </div><!--//container-->
+        </div>
       <hr>
       <div class="container text-center" style="margin-bottom: 10px">
          <h3 style="font-family: 배달의민족 도현; src: ./bootstrap/fonts/BMDOHYEON_ttf.ttf" >누가 잘하는지 겨뤄보자!!</h3>
