@@ -187,7 +187,7 @@ $(function(){
     						alert("이미 방이 존재합니다.");
     					} else{
     						location.href="matching.do";
-    						window.open("localhost:8888/Project2/broadcast.html", "채팅방", "width=500, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );
+    						window.open("192.168.12.25:8888/Project2/broadcast.html", "채팅방", "width=500, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );
     					}
     				} 
       	});
@@ -338,7 +338,7 @@ $(function(){
       <span><B>실력/수준 : </B></span> &nbsp;&nbsp;
       <div class="btn-group" data-toggle="buttons" id="level">
         <label class="btn btn-primary active">
-          <input type="radio" name="options" id="row" autocomplete="off" value="하">하
+          <input type="radio" name="options" id="row" autocomplete="off" value="하" checked>하
         </label>
         <label class="btn btn-primary">
           <input type="radio" name="options" id="mid" autocomplete="off" value="중">중

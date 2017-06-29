@@ -68,37 +68,41 @@ public class MatchController {
 			                                      String center_name, String match_type, String level) {
 	      Customer c = (Customer)session.getAttribute("loginInfo");
 	      String email = c.getEmail();
-	      Match_room m = (Match_room)session.getAttribute("roomInfo"); 
+	      Match_room matchRoom = new Match_room();
 	    	  
 	      int center_id = 0;
 	      int location_id = 0;
 	      try {  
-	       if((m == null)){
-	    	  model.addAttribute("flagroom","1"); 
-	       } else {
-	    	   String email2 = m.getEmail();
-	    	   if(!(email.equals(email2))){ 
 	  	    	 Sports id_list = mdao.searchid(center_name);
 	  	    	 center_id = id_list.getCenter_id();
 	  	    	 location_id = id_list.getLocation_id();
 	  	    	 System.out.println(":"+ center_id + ":" + location_id );
-	  	    	 Match_room matchRoom = new Match_room();
-	  	    	 matchRoom.setEmail(email);
-	  	    	 matchRoom.setCenter_id(center_id);
-	  	    	 matchRoom.setLocation_id(location_id);
-	  	    	 matchRoom.setMatch_type(match_type);
-	  	    	 matchRoom.setLevel(level);
-	  	    	 mdao.roommake(matchRoom);
-	  	    	 System.out.println(matchRoom);
-	  	    	 session.setAttribute("roomInfo", matchRoom);
-	  	         } else {
-	  	        	 model.addAttribute("roomflag", "1");
-	  	         }  
-	       }
-	      } catch (NamingException e) {
+	  	    	 
+	  	    	 Match_room mr = new Match_room();
+	  	    	 mr = mdao.selectOwner(email); // Login session을 이용해서 방이 생성됬는지 유무 체크
+	  	    	 if(mr == null){
+	  	    		 model.addAttribute("msg","0");
+	  	    	 } else {
+	  	    		System.out.println("mr :"+ mr);
+		 
+		  	    	 matchRoom.setEmail(email);
+		  	    	 matchRoom.setCenter_id(center_id);
+		  	    	 matchRoom.setLocation_id(location_id);
+		  	    	 matchRoom.setMatch_type(match_type);
+		  	    	 matchRoom.setLevel(level);
+		  	    	 matchRoom.setOwner(email);
+		  	    	 matchRoom.setCount(1);
+		  	    	 mdao.roommake(matchRoom);
+		  	    	 System.out.println("matchRoom :"+ matchRoom);
+		  	    	 
+		  	    	 matchRoom.make(mr.getRoom_id(), 1, email);
+		  	    	 model.addAttribute("msg","1");
+	  	    	 }
+	  	    	 
+	  	    } catch (NamingException e) {
 	         e.printStackTrace();
 	      }
-	      String forwardURL = "/matching.do";
+	      String forwardURL = "/result.jsp";
 	      return forwardURL;
 	   }
 
